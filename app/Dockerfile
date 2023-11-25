@@ -1,7 +1,7 @@
 FROM openjdk:11 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
 RUN git clone -b docker-deployment https://github.com/EmmanuelMoshood/eProfile-app.git
-RUN cd eProfile-app && mvn install
+RUN cd eProfile-app && mvn clean && mvn install
 
 FROM tomcat:9-jre11
 
